@@ -1,0 +1,219 @@
+%------------------------------------------------------------------------------
+% Semiconductor-focused CV for AMD Shanghai
+%------------------------------------------------------------------------------
+
+\documentclass[a4paper,11pt]{article}
+
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{tabularx}
+
+%-----PAGE SETUP---------------------------------------------------------------
+
+\addtolength{\oddsidemargin}{-1cm}
+\addtolength{\evensidemargin}{-1cm}
+\addtolength{\textwidth}{2cm}
+\addtolength{\topmargin}{-1cm}
+\addtolength{\textheight}{2cm}
+
+\urlstyle{same}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0cm}
+
+%-----SECTION FORMATTING-------------------------------------------------------
+
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+%-----CUSTOM COMMANDS----------------------------------------------------------
+
+\newcommand{\CVItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\CVSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \small#3 & \small #4 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\CVProjectHeading}[2]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\CVSubHeadingListStart}{\begin{itemize}[leftmargin=0.5cm, label={}]}
+\newcommand{\CVSubHeadingListEnd}{\end{itemize}}
+\newcommand{\CVItemListStart}{\begin{itemize}[leftmargin=0.55cm]}
+\newcommand{\CVItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+%------------------------------------------------------------------------------
+% CV STARTS HERE
+%------------------------------------------------------------------------------
+
+\begin{document}
+
+%-----HEADING------------------------------------------------------------------
+
+\begin{center}
+  \textbf{\LARGE \scshape Tianyi ZHANG} \\ \vspace{2pt}
+  \small Pudong New District, Shanghai, China $|$
+  +86 13307187701 $|$
+  \href{mailto:zhangtianyi2023aa@163.com}{zhangtianyi2023aa@163.com}
+\end{center}
+
+%-----OBJECTIVE----------------------------------------------------------------
+
+\section{Objective}
+\small{
+Seeking semiconductor engineering opportunities at \textbf{AMD Shanghai}, with a focus on SoC verification, automation infrastructure, AI-assisted EDA tooling, and hardware/software workflow optimisation.
+}
+
+%-----EDUCATION----------------------------------------------------------------
+
+\section{Education}
+\CVSubHeadingListStart
+
+\CVSubheading
+{MSc Precision Scientific Instrumentation}
+{Expected 2026 -- 2027}
+{Nanyang Technological University}
+{Singapore}
+\CVItemListStart
+  \CVItem{Focus on semiconductor instrumentation, precision electronics, sensing systems, and advanced hardware integration.}
+\CVItemListEnd
+
+\CVSubheading
+{BEng Mechanical Engineering \emph{\small{(First Class Honours)}}}
+{Sept 2023 -- Jun 2026}
+{University College London}
+{London, United Kingdom}
+\CVItemListStart
+  \CVItem{First Class Honours, approximately equivalent to GPA 3.7+/4.0 in the Chinese grading system.}
+  \CVItem{Relevant coursework: control systems, simulation and modelling, numerical methods, data structures, embedded systems.}
+\CVItemListEnd
+
+\CVSubHeadingListEnd
+
+%-----SKILLS-------------------------------------------------------------------
+
+\section{Skills}
+\begin{itemize}[leftmargin=0.5cm, label={}]
+    \item \small{\textbf{Programming:} Python, Java, C++, MATLAB, Shell, Verilog}
+    \item \small{\textbf{Semiconductor \& Verification Tools:} Synopsys VCS, Verdi, Linux, Perforce, RTL automation, regression testing}
+    \item \small{\textbf{Software \& Data Systems:} FastAPI, Streamlit, SQL, Git, data processing pipelines, statistical forecasting}
+    \item \small{\textbf{Engineering Tools:} MATLAB Simulink, LabVIEW, ANSYS, Fusion 360}
+\end{itemize}
+
+%-----WORK EXPERIENCE----------------------------------------------------------
+
+\section{Work Experience}
+\CVSubHeadingListStart
+
+\CVSubheading
+{Assistant Project Engineer, MSIP Department}
+{Jul 2024 -- Present}
+{Advanced Micro Devices, Inc. (AMD)}
+{Shanghai / London}
+\CVItemListStart
+  \CVItem{Contributed to memory read/write IP development for AMD accelerator projects including MI350 and MI400.}
+  \CVItem{Developed automation and AI-assisted verification scripts for large-scale SoC signal inspection and traffic analysis.}
+  \CVItem{Built automated RTL error-injection frameworks to improve verification robustness and functional coverage evaluation.}
+  \CVItem{Maintained regression and validation workflows using Linux, Shell scripting, Python, Perforce, Synopsys VCS, and Verdi.}
+  \CVItem{Improved internal AI scripting tools by integrating intelligent command correction features to reduce user input errors.}
+\CVItemListEnd
+
+\CVSubHeadingListEnd
+
+%-----PROJECTS-----------------------------------------------------------------
+
+\section{Projects}
+\CVSubHeadingListStart
+
+\CVProjectHeading
+{Full-Stack Immigration Data Management System $|$ \emph{\small{FastAPI / Streamlit / SQL}}}
+{2025}
+\CVItemListStart
+  \CVItem{Developed a full-stack data management platform for the Singapore Immigration \& Checkpoints Authority (ICA).}
+  \CVItem{Designed backend APIs and database structures using FastAPI for traveller record management and analytics.}
+  \CVItem{Built Streamlit dashboards for operational monitoring, data interaction, and visual analysis.}
+  \CVItem{Implemented short-term forecasting models to estimate future inbound traveller volume trends.}
+  \CVItem{Integrated automated data-processing pipelines to support decision-making workflows.}
+\CVItemListEnd
+
+\CVProjectHeading
+{Energy-Aware Route Optimisation for Electric Scooters $|$ \emph{\small{OSM / Graph Algorithms}}}
+{2025 -- Jun 2026}
+\CVItemListStart
+  \CVItem{Developed a simulation framework for electric scooter energy modelling using real-world map and elevation data.}
+  \CVItem{Implemented graph-based routing algorithms with custom energy-consumption edge weights derived from terrain and traffic conditions.}
+  \CVItem{Designed a hybrid optimisation strategy combining regenerative braking analysis with energy-aware route planning.}
+  \CVItem{Built automated simulation pipelines for large-scale route evaluation and statistical comparison across urban scenarios.}
+\CVItemListEnd
+
+\CVProjectHeading
+{Path Planning for Trailer Obstacle Avoidance $|$ \emph{\small{A* Algorithms / Kinematic Constraints}}}
+{2022 -- 2023}
+\CVItemListStart
+  \CVItem{Developed a constrained path-planning framework for articulated trailer systems using an enhanced A* search algorithm.}
+  \CVItem{Integrated non-holonomic vehicle dynamics, steering continuity constraints, and collision-envelope detection into the planning heuristic.}
+  \CVItem{Generated dynamically feasible obstacle-avoidance trajectories while balancing computational efficiency and path optimality.}
+\CVItemListEnd
+
+\CVSubHeadingListEnd
+
+%-----LEADERSHIP---------------------------------------------------------------
+
+\section{Leadership \& Activities}
+\CVSubHeadingListStart
+
+\CVProjectHeading
+{UCL Racing Formula E Team}
+{Nov 2023 -- Jun 2026}
+\CVItemListStart
+  \CVItem{Assisted in debugging motor signals and sensor feedback systems for the Formula E race car.}
+\CVItemListEnd
+
+\CVProjectHeading
+{Vice President \& Director of Program Control, Robotics Club}
+{Sept 2020 -- Jun 2023}
+\CVItemListStart
+  \CVItem{Led the construction and debugging of robotic control modules and competed in the FRC China Regional Competition.}
+\CVItemListEnd
+
+\CVSubHeadingListEnd
+
+%-----AWARDS-------------------------------------------------------------------
+
+\section{Honors \& Awards}
+\CVSubHeadingListStart
+
+\CVProjectHeading
+{British Physics Olympiad Gold Award}
+{Nov 2022}
+
+\CVSubHeadingListEnd
+
+%-----ADDITIONAL INFORMATION---------------------------------------------------
+
+\section{Additional Information}
+\begin{itemize}[leftmargin=0.5cm, label={}]
+    \item \small{\textbf{Languages:} Chinese Native, English Professional Working Proficiency}
+    \item \small{\textbf{Interests:} Football, Table Tennis, Reading, Travelling}
+\end{itemize}
+
+\end{document}
