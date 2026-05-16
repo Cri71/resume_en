@@ -11,6 +11,7 @@
 \usepackage[hidelinks]{hyperref}
 \usepackage{xcolor}
 \usepackage{tabularx}
+\usepackage{mathptmx}
 
 %-----PAGE SETUP---------------------------------------------------------------
 
@@ -28,36 +29,41 @@
 %-----SECTION FORMATTING-------------------------------------------------------
 
 \titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
+  \vspace{-4pt}\bfseries\raggedright\large
 }{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
 
 %-----CUSTOM COMMANDS----------------------------------------------------------
 
 \newcommand{\CVItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
+  \item \small{#1}
 }
 
 \newcommand{\CVSubheading}[4]{
   \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
       \small#3 & \small #4 \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{-4pt}
 }
 
 \newcommand{\CVProjectHeading}[2]{
   \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
       \textbf{#1} & #2 \\
-    \end{tabular*}\vspace{-7pt}
+    \end{tabular*}\vspace{-4pt}
 }
 
-\newcommand{\CVSubHeadingListStart}{\begin{itemize}[leftmargin=0.5cm, label={}]}
+\newcommand{\CVSubHeadingListStart}{
+  \begin{itemize}[leftmargin=0cm, label={}, itemsep=3pt, topsep=2pt, parsep=0pt, partopsep=0pt]
+}
+
 \newcommand{\CVSubHeadingListEnd}{\end{itemize}}
-\newcommand{\CVItemListStart}{\begin{itemize}[leftmargin=0.55cm]}
-\newcommand{\CVItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+\newcommand{\CVItemListStart}{
+  \begin{itemize}[leftmargin=0.45cm, itemsep=2pt, topsep=2pt, parsep=0pt, partopsep=0pt]
+}
+
+\newcommand{\CVItemListEnd}{\end{itemize}}
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
@@ -70,7 +76,7 @@
 %-----HEADING------------------------------------------------------------------
 
 \begin{center}
-  \textbf{\LARGE \scshape Tianyi ZHANG} \\ \vspace{2pt}
+  {\LARGE \textbf{Tianyi ZHANG}} \\ \vspace{2pt}
   \small Pudong New District, Shanghai, China $|$
   +86 13307187701 $|$
   \href{mailto:zhangtianyi2023aa@163.com}{zhangtianyi2023aa@163.com}
@@ -94,7 +100,7 @@ Seeking semiconductor engineering opportunities at \textbf{AMD Shanghai}, with a
 {Nanyang Technological University}
 {Singapore}
 \CVItemListStart
-  \CVItem{Focus on semiconductor instrumentation, precision electronics, sensing systems, and advanced hardware integration.}
+  \CVItem{Focus on semiconductor instrumentation, precision electronics, sensing systems, advanced hardware integration, and artificial intelligence.}
 \CVItemListEnd
 
 \CVSubheading
@@ -104,7 +110,7 @@ Seeking semiconductor engineering opportunities at \textbf{AMD Shanghai}, with a
 {London, United Kingdom}
 \CVItemListStart
   \CVItem{First Class Honours, approximately equivalent to GPA 3.7+/4.0 in the Chinese grading system.}
-  \CVItem{Relevant coursework: control systems, simulation and modelling, numerical methods, data structures, embedded systems.}
+  \CVItem{Relevant coursework: control systems, computational modelling, algorithm development, embedded systems, and real-time systems.}
 \CVItemListEnd
 
 \CVSubHeadingListEnd
@@ -112,12 +118,15 @@ Seeking semiconductor engineering opportunities at \textbf{AMD Shanghai}, with a
 %-----SKILLS-------------------------------------------------------------------
 
 \section{Skills}
-\begin{itemize}[leftmargin=0.5cm, label={}]
-    \item \small{\textbf{Programming:} Python, Java, C++, MATLAB, Shell, Verilog}
-    \item \small{\textbf{Semiconductor \& Verification Tools:} Synopsys VCS, Verdi, Linux, Perforce, RTL automation, regression testing}
-    \item \small{\textbf{Software \& Data Systems:} FastAPI, Streamlit, SQL, Git, data processing pipelines, statistical forecasting}
-    \item \small{\textbf{Engineering Tools:} MATLAB Simulink, LabVIEW, ANSYS, Fusion 360}
-\end{itemize}
+\small{
+\textbf{Programming:} Python, Java, C++, MATLAB, Shell, Verilog \\[4pt]
+
+\textbf{Semiconductor \& Verification Tools:} Synopsys VCS, Verdi, Linux, Perforce, RTL automation, regression testing \\[4pt]
+
+\textbf{Software \& Data Systems:} FastAPI, Streamlit, SQL, Git, data processing pipelines, statistical forecasting \\[4pt]
+
+\textbf{Engineering Tools:} MATLAB Simulink, LabVIEW, ANSYS, Fusion 360
+}
 
 %-----WORK EXPERIENCE----------------------------------------------------------
 
@@ -130,7 +139,7 @@ Seeking semiconductor engineering opportunities at \textbf{AMD Shanghai}, with a
 {Advanced Micro Devices, Inc. (AMD)}
 {Shanghai / London}
 \CVItemListStart
-  \CVItem{Contributed to memory read/write IP development for AMD accelerator projects including MI350 and MI400.}
+  \CVItem{Contributed to memory read/write IP development for AMD accelerator projects.}
   \CVItem{Developed automation and AI-assisted verification scripts for large-scale SoC signal inspection and traffic analysis.}
   \CVItem{Built automated RTL error-injection frameworks to improve verification robustness and functional coverage evaluation.}
   \CVItem{Maintained regression and validation workflows using Linux, Shell scripting, Python, Perforce, Synopsys VCS, and Verdi.}
@@ -146,7 +155,7 @@ Seeking semiconductor engineering opportunities at \textbf{AMD Shanghai}, with a
 
 \CVProjectHeading
 {Full-Stack Immigration Data Management System $|$ \emph{\small{FastAPI / Streamlit / SQL}}}
-{2025}
+{Sept 2025 -- Apr 2026}
 \CVItemListStart
   \CVItem{Developed a full-stack data management platform for the Singapore Immigration \& Checkpoints Authority (ICA).}
   \CVItem{Designed backend APIs and database structures using FastAPI for traveller record management and analytics.}
@@ -156,8 +165,8 @@ Seeking semiconductor engineering opportunities at \textbf{AMD Shanghai}, with a
 \CVItemListEnd
 
 \CVProjectHeading
-{Energy-Aware Route Optimisation for Electric Scooters $|$ \emph{\small{OSM / Graph Algorithms}}}
-{2025 -- Jun 2026}
+{Energy-Aware Route Optimisation for Electric Scooters $|$ \emph{\small{Graph Algorithms / OSM}}}
+{Oct 2025 -- Jun 2026}
 \CVItemListStart
   \CVItem{Developed a simulation framework for electric scooter energy modelling using real-world map and elevation data.}
   \CVItem{Implemented graph-based routing algorithms with custom energy-consumption edge weights derived from terrain and traffic conditions.}
@@ -167,7 +176,7 @@ Seeking semiconductor engineering opportunities at \textbf{AMD Shanghai}, with a
 
 \CVProjectHeading
 {Path Planning for Trailer Obstacle Avoidance $|$ \emph{\small{A* Algorithms / Kinematic Constraints}}}
-{2022 -- 2023}
+{Sept 2022 -- Jun 2023}
 \CVItemListStart
   \CVItem{Developed a constrained path-planning framework for articulated trailer systems using an enhanced A* search algorithm.}
   \CVItem{Integrated non-holonomic vehicle dynamics, steering continuity constraints, and collision-envelope detection into the planning heuristic.}
@@ -211,9 +220,10 @@ Seeking semiconductor engineering opportunities at \textbf{AMD Shanghai}, with a
 %-----ADDITIONAL INFORMATION---------------------------------------------------
 
 \section{Additional Information}
-\begin{itemize}[leftmargin=0.5cm, label={}]
-    \item \small{\textbf{Languages:} Chinese Native, English Professional Working Proficiency}
-    \item \small{\textbf{Interests:} Football, Table Tennis, Reading, Travelling}
-\end{itemize}
+\small{
+\textbf{Languages:} Mandarin Chinese (Native), English (IELTS 7.5) \\[4pt]
+
+\textbf{Interests:} Football, Table Tennis, Musicals, Travelling
+}
 
 \end{document}
