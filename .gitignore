@@ -3,7 +3,7 @@
 # Allow directories so exceptions work
 !*/
 # Do not ignore main.tex
-!main.tex
-!main.pdf
+!resume_en.tex
+!resume_en.pdf
 # Keep .gitignore tracked
 !.gitignore
