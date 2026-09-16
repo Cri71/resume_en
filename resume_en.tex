@@ -1,69 +1,64 @@
 %------------------------------------------------------------------------------
-% Semiconductor-focused CV for AMD Shanghai
+% Semiconductor and agentic-engineering CV
 %------------------------------------------------------------------------------
 
 \documentclass[a4paper,11pt]{article}
 
-\usepackage[empty]{fullpage}
+\usepackage[margin=0.65in]{geometry}
 \usepackage{titlesec}
-\usepackage[usenames,dvipsnames]{color}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{xcolor}
 \usepackage{tabularx}
 \usepackage{mathptmx}
+\usepackage{needspace}
 
-%-----PAGE SETUP---------------------------------------------------------------
-
-\addtolength{\oddsidemargin}{-1cm}
-\addtolength{\evensidemargin}{-1cm}
-\addtolength{\textwidth}{2cm}
-\addtolength{\topmargin}{-1cm}
-\addtolength{\textheight}{2cm}
-
+\pagestyle{empty}
 \urlstyle{same}
 \raggedbottom
 \raggedright
-\setlength{\tabcolsep}{0cm}
+\setlength{\tabcolsep}{0pt}
+\setlength{\parindent}{0pt}
 
 %-----SECTION FORMATTING-------------------------------------------------------
 
-\titleformat{\section}{
-  \vspace{-4pt}\bfseries\raggedright\large
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+\titleformat{\section}
+  {\vspace{-2pt}\bfseries\raggedright\normalsize}
+  {}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+\titlespacing*{\section}{0pt}{6pt}{4pt}
 
 %-----CUSTOM COMMANDS----------------------------------------------------------
 
-\newcommand{\CVItem}[1]{
-  \item \small{#1}
-}
+\newcommand{\CVItem}[1]{\item \small #1}
 
 \newcommand{\CVSubheading}[4]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \small#3 & \small #4 \\
-    \end{tabular*}\vspace{-4pt}
+  \item
+    \begin{tabular*}{\textwidth}[t]{@{}l@{\extracolsep{\fill}}r@{}}
+      \textbf{#1} & \textbf{#2} \\
+      \small #3 & \small #4 \\
+    \end{tabular*}\vspace{-5pt}
 }
 
-\newcommand{\CVProjectHeading}[2]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-    \end{tabular*}\vspace{-4pt}
+% Keep the title/date and technology line together, while giving long project
+% titles the full text width so that the date can never collide with them.
+\newcommand{\CVProjectHeading}[3]{
+  \needspace{4\baselineskip}
+  \item
+    \begin{tabular*}{\textwidth}[t]{@{}l@{\extracolsep{\fill}}r@{}}
+      \textbf{#1} & \textbf{#3} \\
+      \multicolumn{2}{@{}l@{}}{\small\emph{#2}} \\
+    \end{tabular*}\vspace{-6pt}
 }
 
 \newcommand{\CVSubHeadingListStart}{
-  \begin{itemize}[leftmargin=0cm, label={}, itemsep=3pt, topsep=2pt, parsep=0pt, partopsep=0pt]
+  \begin{itemize}[leftmargin=0pt,label={},itemsep=2pt,topsep=1pt,parsep=0pt,partopsep=0pt]
 }
-
 \newcommand{\CVSubHeadingListEnd}{\end{itemize}}
 
 \newcommand{\CVItemListStart}{
-  \begin{itemize}[leftmargin=0.45cm, itemsep=2pt, topsep=2pt, parsep=0pt, partopsep=0pt]
+  \begin{itemize}[leftmargin=0.42cm,itemsep=0.5pt,topsep=1pt,parsep=0pt,partopsep=0pt]
 }
-
-\newcommand{\CVItemListEnd}{\end{itemize}}
+\newcommand{\CVItemListEnd}{\end{itemize}\vspace{-1pt}}
 
 \renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
@@ -73,162 +68,101 @@
 
 \begin{document}
 
-%-----HEADING------------------------------------------------------------------
-
 \begin{center}
-  {\LARGE \textbf{Tianyi ZHANG}} \\ \vspace{2pt}
+  {\Large\textbf{Tianyi ZHANG}} \\[-1pt]
   \small Pudong New District, Shanghai, China $|$
   +86 13307187701 $|$
   \href{mailto:zhangtianyi2023aa@163.com}{zhangtianyi2023aa@163.com}
 \end{center}
+\vspace{-9pt}
 
 %-----EDUCATION----------------------------------------------------------------
 
 \section{Education}
 \CVSubHeadingListStart
+  \CVSubheading
+    {MSc Precision Scientific Instrumentation}
+    {Aug 2026 -- Expected Jun 2027}
+    {Nanyang Technological University --- semiconductor instrumentation, electronics, and sensing systems}
+    {Singapore}
+  \vspace{-1pt}{\small Recipient of an NTU postgraduate scholarship.}
 
-\CVSubheading
-{MSc Precision Scientific Instrumentation}
-{Expected 2026 -- 2027}
-{Nanyang Technological University}
-{Singapore}
-\CVItemListStart
-  \CVItem{Focus on semiconductor instrumentation, precision electronics, sensing systems, advanced hardware integration, and artificial intelligence.}
-  \CVItem{Recipient of an NTU postgraduate scholarship.}
-\CVItemListEnd
-
-\CVSubheading
-{BEng Mechanical Engineering, First Class Honours}
-{Sept 2023 -- Jun 2026}
-{University College London}
-{London, United Kingdom}
-\CVItemListStart
-  \CVItem{Relevant coursework: control systems, computational modelling, algorithm development, embedded systems, and real-time systems.}
-\CVItemListEnd
-
+  \CVSubheading
+    {BEng Mechanical Engineering, First Class Honours}
+    {Sept 2023 -- Jun 2026}
+    {University College London}
+    {London, United Kingdom}
 \CVSubHeadingListEnd
-
-%-----SKILLS-------------------------------------------------------------------
-
-\section{Skills}
-\small{
-\textbf{Programming:} Python, Java, C++, MATLAB, Shell, Verilog \\[4pt]
-
-\textbf{Semiconductor \& Verification Tools:} Synopsys VCS, Verdi, Linux, Perforce, RTL automation, regression testing \\[4pt]
-
-\textbf{Software \& Data Systems:} FastAPI, Streamlit, SQL, Git, data processing pipelines, statistical forecasting \\[4pt]
-
-\textbf{Engineering Tools:} MATLAB Simulink, LabVIEW, ANSYS, Fusion 360
-}
 
 %-----WORK EXPERIENCE----------------------------------------------------------
 
 \section{Work Experience}
 \CVSubHeadingListStart
-
-\CVSubheading
-{Assistant Project Engineer, MSIP Department, SRDC}
-{Jul 2024 -- Present}
-{Advanced Micro Devices, Inc. (AMD)}
-{Shanghai}
-\CVItemListStart
-  \CVItem{Contributed to memory read/write IP development for AMD accelerator projects.}
-  \CVItem{Developed automation and AI-assisted verification scripts for large-scale SoC signal inspection and traffic analysis.}
-  \CVItem{Built automated RTL error-injection frameworks to improve verification robustness and functional coverage evaluation.}
-  \CVItem{Maintained regression and validation workflows using Linux, Shell scripting, Python, Perforce, Synopsys VCS, and Verdi.}
-  \CVItem{Developed a real-time automated analytics platform to analyse code commits and measure AI-assisted contribution rates, improving visibility across engineering workflows.}
-  \CVItem{Designed a context-aware skill-routing framework for AI-assisted Verilog debugging, replacing fixed single-skill iteration with dynamic scoring and selection based on error patterns, debugging stage, and design context.}
-\CVItemListEnd
-
+  \CVSubheading
+    {Assistant Project Engineer, MSIP Department, SRDC}
+    {Jul 2024 -- Present}
+    {Advanced Micro Devices, Inc. (AMD)}
+    {Shanghai}
+  \CVItemListStart
+    \CVItem{Supported memory read/write IP development for AMD accelerator projects.}
+    \CVItem{Developed Python and Shell automation for SoC signal inspection, traffic analysis, RTL error injection, regression testing, and verification analysis using VCS, Verdi, and Perforce.}
+    \CVItem{Developed a real-time analytics platform that automatically analyses code commits and tracks AI-assisted development adoption, improving visibility into AI usage across engineering workflows.}
+    \CVItem{Designed a context-aware orchestration framework for AI-assisted Verilog debugging that dynamically scores and selects specialised debugging skills based on error characteristics, debugging stage, and design context.}
+  \CVItemListEnd
 \CVSubHeadingListEnd
 
-%-----PROJECTS-----------------------------------------------------------------
+%-----TECHNICAL SKILLS---------------------------------------------------------
 
-\section{Projects}
+\section{Technical Skills}
+{\small
+\textbf{Languages:} Python, C++, Java, Verilog, Shell, MATLAB \\
+\textbf{Verification \& EDA:} Synopsys VCS, Verdi, RTL automation, regression testing, error injection \\
+\textbf{Software \& Tools:} Linux, Git, Perforce, SQL, FastAPI, Streamlit}
+
+%-----SELECTED PROJECTS--------------------------------------------------------
+
+\section{Selected Projects}
 \CVSubHeadingListStart
+  \CVProjectHeading
+    {Evaluation-Driven Agent Skill System}
+    {Python / LLM Agents / EDA Automation}
+    {2026}
+  \CVItemListStart
+    \CVItem{Built modular skill packages that encode domain instructions, execution workflows, and tool-use requirements for reusable software-engineering tasks.}
+    \CVItem{Developed structured task datasets, scoring rubrics, and an evaluation harness to compare baseline and skill-assisted agent performance through regression testing.}
+    \CVItem{Currently extending the framework towards context-aware skill routing for debugging and EDA workflows, guided by task state, error characteristics, and execution context.}
+  \CVItemListEnd
 
+  \CVProjectHeading
+    {Energy-Aware Route Optimisation for Electric Scooters}
+    {Python / Graph Algorithms / OpenStreetMap}
+    {2026}
+  \CVItemListStart
+    \CVItem{Developed a Python simulation using real-world map and elevation data, with graph edges weighted by terrain- and traffic-dependent energy consumption.}
+    \CVItem{Implemented energy-aware route optimisation and regenerative-braking analysis to compare scooter routes across urban scenarios.}
+  \CVItemListEnd
 
-\CVProjectHeading
-{Evaluation-Driven Skill System for Software Engineering and EDA Automation $|$ \emph{\small{LLM Agents / Evaluation Harness}}}
-{2026}
-\CVItemListStart
-  \CVItem{Designed modular skill packages that encode domain workflows, tool-use instructions, and reusable execution patterns for software engineering and EDA automation tasks.}
-  \CVItem{Built an evaluation framework to benchmark skill reliability across coding, debugging, RTL-analysis, and verification-assistance scenarios.}
-  \CVItem{Created task datasets, scoring rubrics, and automated regression reports to compare baseline agent performance against skill-augmented workflows.}
-  \CVItem{Integrated feedback from evaluation results into iterative prompt, workflow, and tool-invocation improvements for higher task-completion consistency.}
-\CVItemListEnd
-
-\CVProjectHeading
-{Energy-Aware Route Optimisation for Electric Scooters $|$ \emph{\small{Graph Algorithms / OSM}}}
-{2026}
-\CVItemListStart
-  \CVItem{Developed a simulation framework for electric scooter energy modelling using real-world map and elevation data.}
-  \CVItem{Implemented graph-based routing algorithms with custom energy-consumption edge weights derived from terrain and traffic conditions.}
-  \CVItem{Designed a hybrid optimisation strategy combining regenerative braking analysis with energy-aware route planning.}
-  \CVItem{Built automated simulation pipelines for large-scale route evaluation and statistical comparison across urban scenarios.}
-\CVItemListEnd
-
-\CVProjectHeading
-{Path Planning for Trailer Obstacle Avoidance $|$ \emph{\small{A* Algorithms / Kinematic Constraints}}}
-{2023}
-\CVItemListStart
-  \CVItem{Developed a constrained path-planning framework for articulated trailer systems using an enhanced A* search algorithm.}
-  \CVItem{Integrated non-holonomic vehicle dynamics, steering continuity constraints, and collision-envelope detection into the planning heuristic.}
-  \CVItem{Generated dynamically feasible obstacle-avoidance trajectories while balancing computational efficiency and path optimality.}
-\CVItemListEnd
-
-\CVProjectHeading
-{Full-Stack Immigration Data Management System $|$ \emph{\small{FastAPI / Streamlit / SQL}}}
-{2025}
-\CVItemListStart
-  \CVItem{Developed a full-stack data management platform for the Singapore Immigration \& Checkpoints Authority (ICA).}
-  \CVItem{Designed backend APIs and database structures using FastAPI for traveller record management and analytics.}
-  \CVItem{Built Streamlit dashboards for operational monitoring, data interaction, and visual analysis.}
-  \CVItem{Implemented short-term forecasting models to estimate future inbound traveller volume trends.}
-  \CVItem{Integrated automated data-processing pipelines to support decision-making workflows.}
-\CVItemListEnd
-
+  \CVProjectHeading
+    {Full-Stack Immigration Data Management System}
+    {FastAPI / Streamlit / SQL}
+    {2025}
+  \CVItemListStart
+    \CVItem{Developed a full-stack platform for analysing Singapore immigration and traveller-volume data, with a FastAPI backend, SQL database, and Streamlit interface.}
+    \CVItem{Implemented data-processing and short-term forecasting workflows to analyse inbound traveller-volume trends.}
+  \CVItemListEnd
 \CVSubHeadingListEnd
 
-%-----LEADERSHIP---------------------------------------------------------------
+%-----LEADERSHIP AND AWARDS----------------------------------------------------
 
-\section{Leadership \& Activities}
-\CVSubHeadingListStart
-
-\CVProjectHeading
-{UCL Racing Formula E Team}
-{2023 -- 2026}
-\CVItemListStart
-  \CVItem{Assisted in debugging motor signals and sensor feedback systems for the Formula E race car.}
-\CVItemListEnd
-
-\CVProjectHeading
-{Vice President \& Director of Program Control, Robotics Club}
-{2020 -- 2023}
-\CVItemListStart
-  \CVItem{Led the construction and debugging of robotic control modules and competed in the FRC China Regional Competition.}
-\CVItemListEnd
-
-\CVSubHeadingListEnd
-
-%-----AWARDS-------------------------------------------------------------------
-
-\section{Honors \& Awards}
-\CVSubHeadingListStart
-
-\CVProjectHeading
-{British Physics Olympiad Gold Award}
-{2022}
-
-\CVSubHeadingListEnd
+\section{Leadership \& Awards}
+{\small
+\textbf{UCL Racing Formula E Team} (2023--2026) --- Assisted with debugging motor signals and sensor feedback systems. \\
+\textbf{Vice President \& Director of Program Control, Robotics Club} (2020--2023) --- Led construction and debugging of robotic control modules for the FRC China Regional Competition. \\
+\textbf{British Physics Olympiad Gold Award} (2022).}
 
 %-----ADDITIONAL INFORMATION---------------------------------------------------
 
 \section{Additional Information}
-\small{
-\textbf{Languages:} Mandarin Chinese (Native), English (IELTS 7.5) \\[4pt]
-
-\textbf{Interests:} Football, Table Tennis, Musicals, Travelling
-}
+{\small \textbf{Languages:} Mandarin Chinese (Native); English (IELTS 7.5).}
 
 \end{document}
