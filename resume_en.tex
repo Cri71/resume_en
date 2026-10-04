@@ -4,14 +4,13 @@
 
 \documentclass[a4paper,11pt]{article}
 
-\usepackage[margin=0.65in]{geometry}
+\usepackage[margin=1.5cm]{geometry}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{xcolor}
 \usepackage{tabularx}
 \usepackage{mathptmx}
-\usepackage{needspace}
 
 \pagestyle{empty}
 \urlstyle{same}
@@ -24,30 +23,42 @@
 
 \titleformat{\section}
   {\vspace{-2pt}\bfseries\raggedright\normalsize}
-  {}{0em}{}[\color{black}\titlerule \vspace{-4pt}]
+  {}{0em}{}[\color{black}\titlerule \vspace{-1pt}]
 \titlespacing*{\section}{0pt}{6pt}{4pt}
 
 %-----CUSTOM COMMANDS----------------------------------------------------------
+
+% Reserve heading space using core LaTeX; no needspace package is required.
+\newcommand{\CVNeedSpace}[1]{%
+  \par
+  \begingroup
+    \dimen0=\pagegoal
+    \advance\dimen0 by -\pagetotal
+    \ifdim\dimen0<#1\relax
+      \newpage
+    \fi
+  \endgroup
+}
 
 \newcommand{\CVItem}[1]{\item \small #1}
 
 \newcommand{\CVSubheading}[4]{
   \item
-    \begin{tabular*}{\textwidth}[t]{@{}l@{\extracolsep{\fill}}r@{}}
+    \begin{tabularx}{\textwidth}[t]{@{}>{\raggedright\arraybackslash}X@{\hspace{1em}}r@{}}
       \textbf{#1} & \textbf{#2} \\
       \small #3 & \small #4 \\
-    \end{tabular*}\vspace{-5pt}
+    \end{tabularx}\vspace{-5pt}
 }
 
 % Keep the title/date and technology line together, while giving long project
 % titles the full text width so that the date can never collide with them.
 \newcommand{\CVProjectHeading}[3]{
-  \needspace{4\baselineskip}
+  \CVNeedSpace{4\baselineskip}
   \item
-    \begin{tabular*}{\textwidth}[t]{@{}l@{\extracolsep{\fill}}r@{}}
+    \begin{tabularx}{\textwidth}[t]{@{}>{\raggedright\arraybackslash}X@{\hspace{1em}}r@{}}
       \textbf{#1} & \textbf{#3} \\
       \multicolumn{2}{@{}l@{}}{\small\emph{#2}} \\
-    \end{tabular*}\vspace{-6pt}
+    \end{tabularx}\vspace{-6pt}
 }
 
 \newcommand{\CVSubHeadingListStart}{
@@ -76,93 +87,93 @@
 \end{center}
 \vspace{-9pt}
 
-%-----EDUCATION----------------------------------------------------------------
-
-\section{Education}
-\CVSubHeadingListStart
-  \CVSubheading
-    {MSc Precision Scientific Instrumentation}
-    {Aug 2026 -- Expected Jun 2027}
-    {Nanyang Technological University --- semiconductor instrumentation, electronics, and sensing systems}
-    {Singapore}
-  \vspace{-1pt}{\small Recipient of an NTU postgraduate scholarship.}
-
-  \CVSubheading
-    {BEng Mechanical Engineering, First Class Honours}
-    {Sept 2023 -- Jun 2026}
-    {University College London}
-    {London, United Kingdom}
-\CVSubHeadingListEnd
-
 %-----WORK EXPERIENCE----------------------------------------------------------
 
 \section{Work Experience}
 \CVSubHeadingListStart
   \CVSubheading
-    {Assistant Project Engineer, MSIP Department, SRDC}
-    {Jul 2024 -- Present}
     {Advanced Micro Devices, Inc. (AMD)}
+    {Jul 2024 -- Present}
+    {Assistant Project Engineer, MSIP Department, SRDC}
     {Shanghai}
   \CVItemListStart
-    \CVItem{Supported memory read/write IP development for AMD accelerator projects.}
-    \CVItem{Developed Python and Shell automation for SoC signal inspection, traffic analysis, RTL error injection, regression testing, and verification analysis using VCS, Verdi, and Perforce.}
-    \CVItem{Developed a real-time analytics platform that automatically analyses code commits and tracks AI-assisted development adoption, improving visibility into AI usage across engineering workflows.}
-    \CVItem{Designed a context-aware orchestration framework for AI-assisted Verilog debugging that dynamically scores and selects specialised debugging skills based on error characteristics, debugging stage, and design context.}
+    \CVItem{\textbf{IP Development and Verification:} Contributed to memory read/write IP development for AMD accelerator projects, supporting RTL design and verification.}
+    \CVItem{\textbf{SoC Verification Automation:} Developed Python and Shell tools for SoC signal checks, traffic analysis, and RTL error injection, using VCS, Verdi, and Perforce to support regression testing and verification analysis.}
+    \CVItem{\textbf{AI-Assisted RTL Debugging:} Developed a skill-selection mechanism for Verilog debugging, scoring specialised skills by error characteristics, debugging stage and design context to select methods for specific RTL issues.}
+    \CVItem{\textbf{Simulation Feedback and Evaluation:} Reran simulations after AI-assisted debugging and reviewed errors and results in simulation logs; evaluated selected skills to guide subsequent RTL debugging iterations.}
+    \CVItem{\textbf{AI Usage Analytics:} Contributed to a real-time code-commit analytics platform that automatically analyses commits and measures AI-assisted development usage, helping engineering teams track AI tool adoption.}
   \CVItemListEnd
+\CVSubHeadingListEnd
+
+%-----EDUCATION----------------------------------------------------------------
+
+\section{Education}
+\CVSubHeadingListStart
+  \CVSubheading
+    {Nanyang Technological University}
+    {Aug 2026 -- Expected Jun 2027}
+    {MSc in Precision Scientific Instrumentation}
+    {Singapore}
+  \par\vspace{3pt}{\small Recipient of an NTU postgraduate scholarship; focus: semiconductor instrumentation, precision electronics, and sensing systems.\par}
+
+  \CVSubheading
+    {University College London (UCL)}
+    {Sept 2023 -- Jun 2026}
+    {BEng in Mechanical Engineering $|$ First Class Honours}
+    {London, United Kingdom}
 \CVSubHeadingListEnd
 
 %-----TECHNICAL SKILLS---------------------------------------------------------
 
 \section{Technical Skills}
 {\small
-\textbf{Languages:} Python, C++, Java, Verilog, Shell, MATLAB \\
-\textbf{Verification \& EDA:} Synopsys VCS, Verdi, RTL automation, regression testing, error injection \\
-\textbf{Software \& Tools:} Linux, Git, Perforce, SQL, FastAPI, Streamlit}
+\textbf{Digital Verification \& EDA:} Verilog, Synopsys VCS, Verdi, SoC signal checks, regression testing, RTL error injection \\
+\textbf{Programming \& Tools:} Python, C++, Shell, Java, MATLAB, Linux, Git, Perforce \\
+\textbf{Agentic Coding \& ML:} Agent Skills, workflow orchestration, evaluation harnesses, scikit-learn, pandas}
 
 %-----SELECTED PROJECTS--------------------------------------------------------
 
-\section{Selected Projects}
+\section{Projects}
 \CVSubHeadingListStart
   \CVProjectHeading
-    {Evaluation-Driven Agent Skill System}
-    {Python / LLM Agents / EDA Automation}
+    {Agent Skill: Engineering Automation Workflows and Evaluation}
+    {Python / LLM Agents / Workflow Runner / Evaluation Harness}
     {2026}
   \CVItemListStart
-    \CVItem{Built modular skill packages that encode domain instructions, execution workflows, and tool-use requirements for reusable software-engineering tasks.}
-    \CVItem{Developed structured task datasets, scoring rubrics, and an evaluation harness to compare baseline and skill-assisted agent performance through regression testing.}
-    \CVItem{Currently extending the framework towards context-aware skill routing for debugging and EDA workflows, guided by task state, error characteristics, and execution context.}
+    \CVItem{Developed modular Agent Skills and a Python workflow runner for engineering automation, with prompt preflight checks, model calls and saved outputs; linked tasks, skills, models and prompts to runtime, token usage and failure logs.}
+    \CVItem{Built an offline evaluation harness with rule-based scoring, batch runs and benchmark comparisons; checked dataset, split and scoring consistency, exported CSV results and regression-tested evaluation logic.}
   \CVItemListEnd
 
   \CVProjectHeading
-    {Energy-Aware Route Optimisation for Electric Scooters}
+    {Model Training: Bank Term Deposit Classification}
+    {Python / scikit-learn / imbalanced-learn / pandas}
+    {2026}
+  \CVItemListStart
+    \CVItem{Constructed model-training pipelines for 45,211 bank records, comparing logistic regression, SVM, KNN, tree and boosting models, voting and stacking ensembles, and class-imbalance treatments.}
+    \CVItem{Implemented five-fold stratified evaluation using MCC, with preprocessing, sampling and feature selection fitted within training folds to prevent data leakage; excluded post-call duration and logged out-of-fold predictions and training time, and used hashes for run traceability and reproducibility.}
+  \CVItemListEnd
+
+  \CVProjectHeading
+    {Scooter Modelling: Energy Simulation and Route Optimisation}
     {Python / Graph Algorithms / OpenStreetMap}
     {2026}
   \CVItemListStart
-    \CVItem{Developed a Python simulation using real-world map and elevation data, with graph edges weighted by terrain- and traffic-dependent energy consumption.}
-    \CVItem{Implemented energy-aware route optimisation and regenerative-braking analysis to compare scooter routes across urban scenarios.}
+    \CVItem{Built a Python simulation converting maps, elevation and traffic into energy-weighted road networks; combined graph search, physical energy modelling and regenerative braking to compare urban routes by energy consumption.}
   \CVItemListEnd
 
-  \CVProjectHeading
-    {Full-Stack Immigration Data Management System}
-    {FastAPI / Streamlit / SQL}
-    {2025}
-  \CVItemListStart
-    \CVItem{Developed a full-stack platform for analysing Singapore immigration and traveller-volume data, with a FastAPI backend, SQL database, and Streamlit interface.}
-    \CVItem{Implemented data-processing and short-term forecasting workflows to analyse inbound traveller-volume trends.}
-  \CVItemListEnd
 \CVSubHeadingListEnd
 
 %-----LEADERSHIP AND AWARDS----------------------------------------------------
 
-\section{Leadership \& Awards}
+\section{Campus Activities \& Awards}
 {\small
 \textbf{UCL Racing Formula E Team} (2023--2026) --- Assisted with debugging motor signals and sensor feedback systems. \\
-\textbf{Vice President \& Director of Program Control, Robotics Club} (2020--2023) --- Led construction and debugging of robotic control modules for the FRC China Regional Competition. \\
+\textbf{Vice President \& Project Control Lead, Robotics Club} (2020--2023) --- Organised the assembly and debugging of robotic control modules and participated in the FRC China Regional Competition. \\
 \textbf{British Physics Olympiad Gold Award} (2022).}
 
 %-----ADDITIONAL INFORMATION---------------------------------------------------
 
-\section{Additional Information}
-{\small \textbf{Languages:} Mandarin Chinese (Native); English (IELTS 7.5).}
+\section{Languages}
+{\small Mandarin Chinese (Native); English (IELTS 7.5).}
 
 \end{document}
